@@ -1,0 +1,18 @@
+[package]
+name = "sync-storage"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+evmap = "10.0.2"
+
+[dependencies.rocket]
+version = "0.5.0-rc.2"
+features = [ "uuid" ]
+
+[dependencies.uuid]
+version = "1.2.2"
+features = [
+    "v4",                # Lets you generate random UUIDs
+    "macro-diagnostics", # Enable better diagnostics for compile-time UUIDs
+]
