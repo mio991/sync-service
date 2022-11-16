@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="showNav = !showNav">
+        <mat-icon>{{ showNav ? 'close' :'menu'}}</mat-icon>
+    </button>
+    <h1>To-Do</h1>
+</mat-toolbar>
+<nav>
+    <a routerLink="/list" routerLinkActive="active">Liste</a>
+    <a routerLink="/entry" routerLinkActive="active">Eintrag</a>
+</nav>
+<main>
+    <router-outlet></router-outlet>
+</main>

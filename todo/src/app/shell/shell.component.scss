@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use "theme";
+
+// Get the color config from the theme.
+$color-config: theme.get-color-config(theme.$default);
+
+// Get the primary color palette from the color-config.
+$primary-palette: map.get($color-config, 'primary');
+$background-palette: map.get($color-config, 'background');
+
+:host {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: min-content 1fr;
+
+    grid-template-areas: "header header"
+        "nav main";
+
+    overflow: hidden;
+
+    grid-template-columns: clamp(24ch, 20%, 32ch) 1fr;
+    transition: all 0.5s linear;
+
+    &>nav {
+        transition: padding-inline 0.5s linear;
+    }
+
+    &:not(.show-nav) {
+        grid-template-columns: 0 1fr;
+
+        &>nav {
+            padding-inline: 0;
+        }
+    }
+
+    &>mat-toolbar {
+        grid-area: header;
+    }
+
+    &>nav {
+        grid-area: nav;
+        overflow: hidden;
+
+        padding-block: 0.5em;
+        padding-inline: 1ch;
+
+        background-color: map.get($background-palette, status-bar);
+
+        &>a {
+            display: inline-block;
+            min-width: 24ch;
+
+            text-decoration: none;
+            color: currentColor;
+
+            &.active {
+                color: theme.get-color-from-palette($primary-palette);
+            }
+        }
+    }
+
+    &>main {
+        grid-area: main;
+    }
+}

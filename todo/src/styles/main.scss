@@ -1,0 +1,20 @@
+@use "theme";
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@include theme.core();
+@include theme.all-component-themes(theme.$default)
