@@ -26,8 +26,11 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "input": "src/config/production",
+                "glob": "**",
+                "output": "config"
+              }
             ],
             "styles": [
               "src/styles/main.scss"
@@ -67,7 +70,14 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "assets": [
+                {
+                  "input": "src/config/development",
+                  "glob": "**",
+                  "output": "config"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

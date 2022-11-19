@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './root/app.component';
 import { ShellComponent } from './shell/shell.component';
+import { SettingsModule } from 'src/modules/settings';
 
 const routes: Routes = [
   {
@@ -41,6 +42,7 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    SettingsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule

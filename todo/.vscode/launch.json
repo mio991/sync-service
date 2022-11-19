@@ -3,6 +3,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "name": "Launch ToDo App",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "npm start"
+    },
+    {
       "name": "ng serve",
       "type": "pwa-chrome",
       "request": "launch",

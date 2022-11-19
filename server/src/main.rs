@@ -1,16 +1,18 @@
+mod cors;
 mod storage;
 mod store;
 
-use rocket::{
-    fs::{relative, FileServer},
-    launch,
-};
+use cors::CorsExtension;
+use rocket::{launch, log::LogLevel, Config};
 
 use store::StoreApi;
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build()
-        .mount_store_api("store")
-        .mount("/", FileServer::from(relative!("static")))
+    let config = Config {
+        log_level: LogLevel::Debug,
+        ..Config::default()
+    };
+    rocket::custom(config).add_store("/store").add_cors()
+    //.mount("/", FileServer::from(relative!("static")))
 }

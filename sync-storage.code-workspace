@@ -10,5 +10,18 @@
 			"path": "doc"
 		}
 	],
-	"settings": {}
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [],
+		"compounds": [
+			{
+				"name": "ToDo App with Server",
+				"configurations": [
+					"Debug executable 'sync-storage'",
+					"Launch ToDo App"
+				]
+			}
+		]
+	}
 }

@@ -1,1 +1,11 @@
-<p>list-page works!</p>
+<button mat-flat-button color="primary" (click)="upload()">
+    Upload
+</button>
+<button mat-flat-button *ngIf="id$ | async as id; else: noId" (click)="download(id)">
+    Download ({{id}})
+</button>
+<ng-template #noId>
+    <button mat-flat-button disabled>
+        Download
+    </button>
+</ng-template>
